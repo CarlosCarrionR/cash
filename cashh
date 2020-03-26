@@ -1,0 +1,44 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+
+{
+    float change;
+    int coins = 0;
+
+    do
+    {
+        change = get_float("Change owed:");         //user input
+    }
+    while (change < 0);
+
+    change = change * 100;                              //convert to int for easier operations
+    change = round(change);                             //round
+                                                    
+    while (change > 0)
+    {
+        if (change >= 25)
+        {
+            change = change - 25;
+        }
+        else if (change >= 10)
+        {
+            change = change - 10;
+        }
+        else if (change >= 5)
+        {
+            change = change - 5;
+        }
+        else
+        {
+            change = change - 1;
+        }
+        coins++;                            //add coin for each operation
+    }
+
+    printf("%i\n", coins);                  //print number of coins
+
+
+}
